@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumApp", "SumApp\SumApp.csproj", "{02238FEE-EFA7-43B2-991B-0A7746690F02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetermineSortApp", "DetermineSortApp\DetermineSortApp.csproj", "{4710261A-7EDD-47FD-A8E5-2F9DDBB00BAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02238FEE-EFA7-43B2-991B-0A7746690F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02238FEE-EFA7-43B2-991B-0A7746690F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02238FEE-EFA7-43B2-991B-0A7746690F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02238FEE-EFA7-43B2-991B-0A7746690F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4710261A-7EDD-47FD-A8E5-2F9DDBB00BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4710261A-7EDD-47FD-A8E5-2F9DDBB00BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4710261A-7EDD-47FD-A8E5-2F9DDBB00BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4710261A-7EDD-47FD-A8E5-2F9DDBB00BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72B4835A-F4F9-474F-8BEA-CBCCB203D41A}
+	EndGlobalSection
+EndGlobal
