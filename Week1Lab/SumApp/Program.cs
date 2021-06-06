@@ -6,8 +6,10 @@ namespace SumApp
     {
         static void Main(string[] args)
         {
-            //testing comment
-            Console.WriteLine("Hello World!");
+            var rand = new Random();
+            var a = rand.Next(11);
+            var b = rand.Next(11);
+            Console.WriteLine($"{a} + {b}");
         }
     }
 }
