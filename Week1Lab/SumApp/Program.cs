@@ -27,9 +27,13 @@ namespace SumApp
                 {
                     Console.WriteLine($"Your answer is incorrect. The correct answer is {a + b}.");
                 }
+
+                //capture userInput
                 Console.Write("Do you want to try again? ");
                 userInputRepeat = Console.ReadLine();
-            } while (userInputRepeat == "y" || userInputRepeat == "Y");
+
+                //loop runs if user inputs == 'y' || 'Y'
+            } while (userInputRepeat.ToLower() == "y" && userInputRepeat.ToLower() != "n");
         }
     }
 }
