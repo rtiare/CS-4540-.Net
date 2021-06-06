@@ -6,7 +6,12 @@ namespace DetermineSortApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            //enter userInput
+            Console.Write("Enter list: ");
+            string userInput = Console.ReadLine();
+
+
         }
     }
 }
