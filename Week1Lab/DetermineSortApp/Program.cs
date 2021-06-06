@@ -6,7 +6,6 @@ namespace DetermineSortApp
     {
         static void Main(string[] args)
         {
-
             //enter userInput
             Console.Write("Enter list: ");
             string[] userInput = Console.ReadLine().Split();
@@ -33,13 +32,8 @@ namespace DetermineSortApp
 
             //compare ascending and descending
             for (int i = 0; i < userInt.Length; i++) {
-                if (userInt[i] != ascending[i]) {
-                    isSorted = false;
-                }
-            }
-            isSorted = true;
-            for (int i = 0; i < userInt.Length; i++) {
-                if (userInt[i] != descending[i]) {
+                //if both new arrays don't match to original array, then not sorted
+                if (userInt[i] != ascending[i] && userInt[i] != descending[i]) {
                     isSorted = false;
                 }
             }
@@ -52,8 +46,6 @@ namespace DetermineSortApp
             else {
                 Console.WriteLine("The list is sorted");
             }
-  
- 
         }
     }
 }
