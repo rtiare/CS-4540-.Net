@@ -11,8 +11,8 @@ namespace SumApp
                 var rand = new Random();
 
                 //create random variables
-                var a = rand.Next(11);
-                var b = rand.Next(11);
+                var a = rand.Next(10);
+                var b = rand.Next(10);
                 Console.Write($"{a} + {b} = ");
 
                 //read user input
