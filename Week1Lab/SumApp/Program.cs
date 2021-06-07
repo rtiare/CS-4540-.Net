@@ -33,7 +33,7 @@ namespace SumApp
                 userInputRepeat = Console.ReadLine();
 
                 //loop runs if user inputs == 'y' || 'Y'
-            } while (userInputRepeat.ToLower() == "y" && userInputRepeat.ToLower() != "n");
+            } while (userInputRepeat.ToLower() == "y");
         }
     }
 }
