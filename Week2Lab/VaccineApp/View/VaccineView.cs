@@ -43,7 +43,7 @@ namespace VaccineApp.View
                     VaccineController.addVaccine(new VaccineModel(vaccineName, doseReq, doseDays, totDose));
                 }
                 else {
-                    Console.WriteLine($"Vaccine Management - {VaccineDatabase.SelectedName(int.Parse(input))}");
+                    Console.WriteLine($"\nVaccine Management - {VaccineDatabase.SelectedName(int.Parse(input))}");
                     Console.Write("Please enter how many new doses are received: ");
                     int newDose = int.Parse(Console.ReadLine());
                     VaccineController.addDose(int.Parse(input), newDose);
