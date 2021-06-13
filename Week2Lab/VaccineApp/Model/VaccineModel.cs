@@ -11,7 +11,7 @@ namespace VaccineApp.Model
         //ID
         private static int Id = 0;
         //constructor to create with properties
-        public VaccineModel(string VaccineName, int? DoseRequired, int? DaysBtwDose, int? totalDose) {
+        public VaccineModel(string VaccineName, int? DoseRequired = null, int? DaysBtwDose = null, int? totalDose = null) {
  
             //auto increment ID when adding new object
             Id++;

@@ -11,6 +11,8 @@ namespace VaccineApp.View
 {
     class VaccineView
     {
+
+        //create vac
         static void Main(string[] args)
         {;
             //Console.WriteLine(vacList.vaccineList.Count);
@@ -22,25 +24,29 @@ namespace VaccineApp.View
                 Console.Write("Please enter your choice: ");
                 input = Console.ReadLine();
 
-                if (input == "a") {
+                if (input == "a")
+                {
                     Console.Write("\nEnter the name of vaccine: ");
                     string vaccineName = Console.ReadLine();
                     Console.Write("Enter doses required: ");
                     int doseReq = int.Parse(Console.ReadLine());
-                    int? doseDays;
+                    int? doseDays = null;
                     if (doseReq > 1)
                     {
                         Console.Write("Enter days between doses: ");
                         doseDays = int.Parse(Console.ReadLine());
                     }
-                    else {
-                        doseDays = null;
-                    }
                     Console.Write("Enter total doses received: ");
                     int totDose = int.Parse(Console.ReadLine());
 
                     //add new vaccine
-                    VaccineController.addVaccine(new VaccineModel(vaccineName,doseReq,doseDays,totDose));
+                    VaccineController.addVaccine(new VaccineModel(vaccineName, doseReq, doseDays, totDose));
+                }
+                else {
+                    Console.WriteLine($"Vaccine Management - {VaccineDatabase.SelectedName(int.Parse(input))}");
+                    Console.Write("Please enter how many new doses are received: ");
+                    int newDose = int.Parse(Console.ReadLine());
+                    VaccineController.addDose(int.Parse(input), newDose);
                 }
             }
             while (input != "x");
