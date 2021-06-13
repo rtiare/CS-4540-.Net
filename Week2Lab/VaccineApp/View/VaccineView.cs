@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VaccineApp.Model;
 
 namespace VaccineApp.View
 {
@@ -10,6 +11,7 @@ namespace VaccineApp.View
     {
         static void Main(string[] args)
         {
+            VaccineModel v = new VaccineModel("Pfizer", 10, 23, 1000);
 
             string input;
 
