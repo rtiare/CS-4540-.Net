@@ -11,7 +11,7 @@ namespace VaccineApp.Controller
     public class VaccineController
     {
         //add vaccine
-        public void addVaccine(VaccineModel newVaccine) => VaccineDatabase.VaccineList.Add(newVaccine);
+        public static void addVaccine(VaccineModel newVaccine) => VaccineDatabase.VaccineList.Add(newVaccine);
 
         //public void addDose(int vaccineID) => data.vaccineList.Find(obj => obj.vaccineID == vaccineID);
 

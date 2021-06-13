@@ -17,5 +17,7 @@ namespace VaccineApp.Database
         public static List<VaccineModel> VaccineList {
             get { return vaccineList; }
         }
+
+
     }
 }
