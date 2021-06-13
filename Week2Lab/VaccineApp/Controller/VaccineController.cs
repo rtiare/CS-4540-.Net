@@ -10,20 +10,12 @@ namespace VaccineApp.Controller
 {
     public class VaccineController
     {
-
-        VaccineDatabase data = new VaccineDatabase();
-
-        public void initialView() {
-            data.vaccineList.Add(data.pfizer);
-            data.vaccineList.Add(data.jj);
-        }
-
         //add vaccine
-        public void addVaccine(VaccineModel newVaccine) => data.vaccineList.Add(newVaccine);
+        public void addVaccine(VaccineModel newVaccine) => VaccineDatabase.VaccineList.Add(newVaccine);
 
-        public void addDose(int vaccineID) { 
+        //public void addDose(int vaccineID) => data.vaccineList.Find(obj => obj.vaccineID == vaccineID);
 
-        }
+       
         
     }
 }

@@ -9,9 +9,13 @@ namespace VaccineApp.Database
 {
     public class VaccineDatabase
     {
-        public VaccineModel pfizer = new VaccineModel("Pfizer / BioNTech", 2, 21, 10000);
-        public VaccineModel jj = new VaccineModel("Johnson & Johnson", 1, null, 5000);
+        private static List<VaccineModel> vaccineList = new List<VaccineModel>() {
+            new VaccineModel("Pfizer / BioNTech", 2, 21, 10000),
+            new VaccineModel("Johnson & Johnson", 1, null, 5000)
+        };
 
-        public List<VaccineModel> vaccineList { get; set; }
+        public static List<VaccineModel> VaccineList {
+            get { return vaccineList; }
+        }
     }
 }
