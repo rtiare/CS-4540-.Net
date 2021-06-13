@@ -11,7 +11,9 @@ namespace VaccineApp.View
     {
         static void Main(string[] args)
         {
-            VaccineModel v = new VaccineModel("Pfizer", 10, 23, 1000);
+            VaccineModel v = new VaccineModel("Pfizer", null, 23, 1000);
+            Console.WriteLine(v.vaccineID);
+            Console.WriteLine(v.VaccineName);
 
             string input;
 
