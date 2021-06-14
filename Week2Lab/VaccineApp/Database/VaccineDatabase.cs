@@ -9,7 +9,6 @@ namespace VaccineApp.Database
 {
     public class VaccineDatabase
     {
-
         //return object based on ID
         public static VaccineModel Selected(int id) => VaccineList.Find(obj => obj.VaccineId == id);
 
@@ -21,7 +20,5 @@ namespace VaccineApp.Database
             new VaccineModel("Pfizer/BioNTech", 2, 21, 10000),
             new VaccineModel("Johnson & Johnson", 1, null, 5000)
         };
-
-
     }
 }

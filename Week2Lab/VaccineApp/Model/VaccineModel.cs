@@ -10,6 +10,7 @@ namespace VaccineApp.Model
     {
         //ID
         private static int id = 0;
+
         //constructor to create with properties
         public VaccineModel(string vaccineName, int? doseRequired = null, int? daysBtwDose = null, int? totalDose = null) {
  
