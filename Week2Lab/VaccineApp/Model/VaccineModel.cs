@@ -9,24 +9,24 @@ namespace VaccineApp.Model
     public class VaccineModel
     {
         //ID
-        private static int Id = 0;
+        private static int id = 0;
         //constructor to create with properties
-        public VaccineModel(string VaccineName, int? DoseRequired = null, int? DaysBtwDose = null, int? totalDose = null) {
+        public VaccineModel(string vaccineName, int? doseRequired = null, int? daysBtwDose = null, int? totalDose = null) {
  
             //auto increment ID when adding new object
-            Id++;
-            this.vaccineID = Id;
-            this.VaccineName = VaccineName;
-            this.DoseRequired = DoseRequired;
-            this.DaysBtwDose = DaysBtwDose;
-            this.totalDose = totalDose;
+            id++;
+            this.VaccineId = id;
+            this.VaccineName = vaccineName;
+            this.DoseRequired = doseRequired;
+            this.DaysBtwDose = daysBtwDose;
+            this.TotalDose = totalDose;
         }
 
         //setters and getters
-        public int vaccineID { get; set; }
+        public int VaccineId { get; set; }
         public string VaccineName { get; set; }
         public int? DoseRequired { get; set; }
         public int? DaysBtwDose { get; set; }
-        public int? totalDose { get; set; }
+        public int? TotalDose { get; set; }
     }
 }
