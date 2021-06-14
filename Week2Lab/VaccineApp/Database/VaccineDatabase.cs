@@ -11,7 +11,7 @@ namespace VaccineApp.Database
     {
         //array
         private static List<VaccineModel> vaccineList = new List<VaccineModel>() {
-            new VaccineModel("Pfizer / BioNTech", 2, 21, 10000),
+            new VaccineModel("Pfizer/BioNTech", 2, 21, 10000),
             new VaccineModel("Johnson & Johnson", 1, null, 5000)
         };
 

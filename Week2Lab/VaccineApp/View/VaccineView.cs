@@ -14,8 +14,7 @@ namespace VaccineApp.View
 
         //create vac
         static void Main(string[] args)
-        {;
-            //Console.WriteLine(vacList.vaccineList.Count);
+        {
             string input;
 
             do
@@ -56,17 +55,18 @@ namespace VaccineApp.View
         
         public static void showList() {
             Console.WriteLine("\nVaccine Management\n");
-            Console.WriteLine("    Name                Doses Required    Days Between Doses    Total Doses Received");
-            Console.WriteLine("--------------------------------------------------------------------------------------");
+            Console.WriteLine(String.Format("{0,7}{1,33}{2,22}{3,23}\n", "Name", "Doses Required", "Days Between Doses", "Total Doses Received"));
+            Console.WriteLine("---------------------------------------------------------------------------------------");
             for (int i = 0; i < VaccineDatabase.VaccineList.Count; i++) {
-                Console.WriteLine($"{VaccineDatabase.VaccineList[i].vaccineID})  " +
-                    $"{VaccineDatabase.VaccineList[i].VaccineName}   " +
-                    $"{VaccineDatabase.VaccineList[i].DoseRequired}                 " +
-                    $"{VaccineDatabase.VaccineList[i].DaysBtwDose}" +
-                    $"                   {VaccineDatabase.VaccineList[i].totalDose}");
+                Console.WriteLine(String.Format("{0,-3}{1,-23}{2,-18}{3,-21}{4,-12}\n",
+                    $"{VaccineDatabase.VaccineList[i].vaccineID})",
+                    $"{VaccineDatabase.VaccineList[i].VaccineName}",
+                    $"{VaccineDatabase.VaccineList[i].DoseRequired}",
+                    $"{VaccineDatabase.VaccineList[i].DaysBtwDose}",
+                    $"{ VaccineDatabase.VaccineList[i].totalDose}"));
             }
-            Console.WriteLine("a) Add a new vaccine");
-            Console.WriteLine("x)  Exit");
+            Console.WriteLine(String.Format("{0,2}{1,18}\n","a)", "Add a new vaccine"));
+            Console.WriteLine(String.Format("{0,2}{1,5}\n", "x)", "Exit"));
         }
        
 
