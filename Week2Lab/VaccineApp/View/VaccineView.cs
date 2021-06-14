@@ -22,8 +22,18 @@ namespace VaccineApp.View
                 Menu();
                 Console.Write("Please enter your choice: ");
                 input = Console.ReadLine();
+                int number;
 
-                if (input == "a")
+
+                if (int.TryParse(input, out number )) {
+                    Console.WriteLine($"\nVaccine Management - {VaccineDatabase.SelectedName(number)}");
+                    Console.Write("Please enter how many new doses are received: ");
+                    int newDose = int.Parse(Console.ReadLine());
+                    VaccineController.AddDose(int.Parse(input), newDose);
+                }
+                //int.TryParse(input, out number )
+                //input == "a"
+                else if (!int.TryParse(input, out number) && input == "a")
                 {
                     Console.Write("\nEnter the name of vaccine: ");
                     string vaccineName = Console.ReadLine();
@@ -40,12 +50,6 @@ namespace VaccineApp.View
 
                     //add new vaccine
                     VaccineController.AddVaccine(new VaccineModel(vaccineName, doseReq, doseDays, totDose));
-                }
-                else {
-                    Console.WriteLine($"\nVaccine Management - {VaccineDatabase.SelectedName(int.Parse(input))}");
-                    Console.Write("Please enter how many new doses are received: ");
-                    int newDose = int.Parse(Console.ReadLine());
-                    VaccineController.AddDose(int.Parse(input), newDose);
                 }
             }
             while (input != "x");
