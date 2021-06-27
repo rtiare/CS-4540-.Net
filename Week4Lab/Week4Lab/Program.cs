@@ -20,8 +20,17 @@ namespace Week4Lab
             // 1. List the names of the employees who do not have a supervisor.
             // The results should combine FirstName and LastName into one string.
 
+            var r1 = from e in c.Employees where e.SupervisorId is null select (e.FirstName , e.LastName);
+            Print("Q1 (query)", r1);
+
             // 2. List the last names of the employees whose last name starts with D.
             // The results should be listed in alphabetic order without duplicates.
+
+            var r2 = c.Employees
+                .Where(e => e.LastName.StartsWith("D"))
+                .OrderBy(e => e.LastName)
+                .Select(e => new { e.FirstName, e.LastName });
+            Print("Q2 (query)", r2);
 
             // 3. List the names of the employees who are on the project Blue.
             // The results should combine FirstName and LastName into one string.
