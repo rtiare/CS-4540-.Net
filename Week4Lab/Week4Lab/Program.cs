@@ -31,15 +31,18 @@ namespace Week4Lab
             var r2 = c.Employees
                 .Where(e => e.LastName.StartsWith("D"))
                 .OrderBy(e => e.LastName)
-                .Select(e => e.LastName);
-            Print("Q2 (query)", r2);
+                .Select(e => e.LastName)
+                .Distinct();
+            Print("Q2 (method)", r2);
 
             // 3. List the names of the employees who are on the project Blue.
             // The results should combine FirstName and LastName into one string.
 
             var r3 = (from p in c.Projects 
                       where p.Name == "Blue"
-                      select p.Members).Single();
+                      select p.Members)
+                      .Single()
+                      .Intersect(from e in c.Employees select e);
             Print("Q3 (query)", r3);
 
             // 4. Find Jane Doe's subordinates, i.e. the employees who are supervised by Jane Doe.
@@ -53,11 +56,9 @@ namespace Week4Lab
 
             // 5. Find the employee(s) who were hired in 2015 and worked on the project Blue.
 
-            var r5 = (from e in c.Employees
-                      where e.DateHired.Year == 2015
-                      select e)
-                      ;
-
+            var r5 = (from p in c.Projects where  p.Name ==  "Blue" select p.Members)
+                .Single()
+                .Intersect(from e in c.Employees where e.DateHired.Year == 2015 select e);
             Print("Q5 (query)", r5);
                
         }
