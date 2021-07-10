@@ -38,12 +38,13 @@ namespace Week4Lab
             // 3. List the names of the employees who are on the project Blue.
             // The results should combine FirstName and LastName into one string.
 
-            var r3 = (from p in c.Projects 
-                      where p.Name == "Blue"
-                      select p.Members)
-                      .Single()
-                      .Intersect(from e in c.Employees select e);
-            Print("Q3 (query)", r3);
+            var res = from e in c.Employees
+                      join p in c.Projects
+                      on e equals p.Leader
+                      where p.Name == "Blue" && p.Members.Contains(e)
+                      select (e.FirstName, e.LastName);
+
+            Print("Q3 (query)", res);
 
             // 4. Find Jane Doe's subordinates, i.e. the employees who are supervised by Jane Doe.
 
