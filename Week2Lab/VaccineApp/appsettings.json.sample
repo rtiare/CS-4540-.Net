@@ -5,6 +5,6 @@
     "Property2": "Value2"
   },
   "ConnectionStrings": {
-    "Default": "Server=cs3.calstatela.edu;Database=userDatabase; User ID = userID; Password=abc"
+    "Default": "Server=server;Database=userDatabase; User ID = userID; Password=abc"
   }
 }
