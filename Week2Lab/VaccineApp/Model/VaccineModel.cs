@@ -8,26 +8,23 @@ namespace VaccineApp.Model
 {
     public class VaccineModel
     {
-        //ID
-        private static int id = 0;
-
-        //constructor to create with properties
-        public VaccineModel(string vaccineName, int? doseRequired = null, int? daysBtwDose = null, int? totalDose = null) {
- 
-            //auto increment ID when adding new object
-            id++;
-            this.VaccineId = id;
-            this.VaccineName = vaccineName;
-            this.DoseRequired = doseRequired;
-            this.DaysBtwDose = daysBtwDose;
-            this.TotalDose = totalDose;
-        }
-
         //setters and getters
-        public int VaccineId { get; set; }
+        public int Id { get; set; }
         public string VaccineName { get; set; }
         public int? DoseRequired { get; set; }
         public int? DaysBtwDose { get; set; }
         public int? TotalDose { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("{0,-3}{1,-23}{2,-18}{3,-21}{4,-12}\n",
+                    $"{Id})",
+                    $"{VaccineName}",
+                    $"{DoseRequired}",
+                    $"{DaysBtwDose}",
+                    $"{TotalDose}");
+
+                //$"{Id}, {VaccineName}, {DoseRequired}, {DaysBtwDose}, {TotalDose}";
+        }
     }
 }

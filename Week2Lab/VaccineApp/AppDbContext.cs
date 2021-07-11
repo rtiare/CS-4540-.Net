@@ -9,7 +9,7 @@ using VaccineApp.Model;
 
 namespace VaccineApp
 {
-    class AppDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         private readonly string ConnectionString =
             "Server=cs3.calstatela.edu;Database=cs4540stu30;User ID = cs4540stu30; Password=qKNZQtCkG5Qf";

@@ -9,39 +9,46 @@ using VaccineApp.Controller;
 
 namespace VaccineApp.View
 {
-    class VaccineView
+    public class VaccineView
     {
         static void Main(string[] args)
         {
+
+            using var db = new AppDbContext();
+            //load the vaccine with id = 1
+            var pf = db.Vaccines.Find(2);
+            Console.WriteLine(pf);
+
             //starts the program menu
-            MenuLogic();
+            MenuLogic(db);
         }
 
         //menu method
-        public static void Menu() {
+
+        public static void Menu(AppDbContext db) {
             Console.WriteLine("\nVaccine Management\n");
             Console.WriteLine(String.Format("{0,7}{1,33}{2,22}{3,23}\n", "Name", "Doses Required", "Days Between Doses", "Total Doses Received"));
             Console.WriteLine("---------------------------------------------------------------------------------------");
-            for (int i = 0; i < VaccineDatabase.VaccineList.Count; i++) {
-                Console.WriteLine(String.Format("{0,-3}{1,-23}{2,-18}{3,-21}{4,-12}\n",
-                    $"{VaccineDatabase.VaccineList[i].VaccineId})",
-                    $"{VaccineDatabase.VaccineList[i].VaccineName}",
-                    $"{VaccineDatabase.VaccineList[i].DoseRequired}",
-                    $"{VaccineDatabase.VaccineList[i].DaysBtwDose}",
-                    $"{ VaccineDatabase.VaccineList[i].TotalDose}"));
+            foreach (var v in db.Vaccines.Select(e => e).ToArray())
+            {
+                Console.WriteLine($"{v}");
+
             }
             Console.WriteLine(String.Format("{0,2}{1,18}\n","a)", "Add a new vaccine"));
             Console.WriteLine(String.Format("{0,2}{1,5}\n", "x)", "Exit"));
         }
-
+        
         //menu logic to handle input/output logic
-        public static void MenuLogic() {
+
+       
+        
+        public static void MenuLogic(AppDbContext db) {
 
             string input;
 
             do
             {
-                Menu();
+                Menu(db);
                 Console.Write("Please enter your choice: ");
                 input = Console.ReadLine();
                 int number;
@@ -81,5 +88,6 @@ namespace VaccineApp.View
             //only run if input isn't x
             while (input != "x");
         }
+
     }
 }
