@@ -57,10 +57,10 @@ namespace VaccineApp.View
                 if (int.TryParse(input, out number))
                 {
                     //update doses
-                    Console.WriteLine($"\nVaccine Management - {VaccineDatabase.SelectedName(number)}");
+                    Console.WriteLine($"\nVaccine Management - {VaccineController.SelectedName(number, db)}");
                     Console.Write("Please enter how many new doses are received: ");
                     int newDose = int.Parse(Console.ReadLine());
-                    VaccineController.AddDose(number, newDose);
+                    VaccineController.AddDose(number, newDose, db);
                 }
 
                 //create new vaccine
@@ -82,7 +82,15 @@ namespace VaccineApp.View
                     int totDose = int.Parse(Console.ReadLine());
 
                     //add new vaccine
-                    VaccineController.AddVaccine(new VaccineModel(vaccineName, doseReq, doseDays, totDose));
+                    var newVaccine = new VaccineModel {
+
+                        VaccineName = vaccineName,
+                        DoseRequired = doseReq,
+                        DaysBtwDose = doseDays,
+                        TotalDose = totDose
+
+                    };
+                    VaccineController.AddVaccine(newVaccine, db);
                 }
             }
             //only run if input isn't x

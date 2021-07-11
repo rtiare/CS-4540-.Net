@@ -23,5 +23,13 @@ namespace VaccineApp.Controller
             obj.TotalDose += newDose;
             db.SaveChanges();
         }
+
+        //return selected name
+        public static string SelectedName(int id, AppDbContext db)
+        {
+            var name = db.Vaccines.Where(e => e.Id == id).Select(e => e.VaccineName).FirstOrDefault();
+            return name;
+        }
+
     }
 }
