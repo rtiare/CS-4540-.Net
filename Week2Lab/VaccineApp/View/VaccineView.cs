@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VaccineApp.Model;
-using VaccineApp.Database;
 using VaccineApp.Controller;
 
 namespace VaccineApp.View
@@ -13,18 +12,13 @@ namespace VaccineApp.View
     {
         static void Main(string[] args)
         {
-
             using var db = new AppDbContext();
-            //load the vaccine with id = 1
-            var pf = db.Vaccines.Find(2);
-            Console.WriteLine(pf);
 
             //starts the program menu
             MenuLogic(db);
         }
 
         //menu method
-
         public static void Menu(AppDbContext db) {
             Console.WriteLine("\nVaccine Management\n");
             Console.WriteLine(String.Format("{0,7}{1,33}{2,22}{3,23}\n", "Name", "Doses Required", "Days Between Doses", "Total Doses Received"));
@@ -39,13 +33,9 @@ namespace VaccineApp.View
         }
         
         //menu logic to handle input/output logic
-
-       
-        
         public static void MenuLogic(AppDbContext db) {
 
             string input;
-
             do
             {
                 Menu(db);
@@ -83,12 +73,10 @@ namespace VaccineApp.View
 
                     //add new vaccine
                     var newVaccine = new VaccineModel {
-
                         VaccineName = vaccineName,
                         DoseRequired = doseReq,
                         DaysBtwDose = doseDays,
                         TotalDose = totDose
-
                     };
                     VaccineController.AddVaccine(newVaccine, db);
                 }
@@ -96,6 +84,5 @@ namespace VaccineApp.View
             //only run if input isn't x
             while (input != "x");
         }
-
     }
 }

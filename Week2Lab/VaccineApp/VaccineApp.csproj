@@ -12,5 +12,9 @@
 		
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Database\" />
+	</ItemGroup>
+
 
 </Project>
