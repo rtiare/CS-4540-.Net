@@ -1,13 +1,10 @@
 {
-  {
-    "SomeProperty": "SomeValue",
-    "SomeSection": {
-      "Property1": "Value1",
-      "Property2": "Value2"
-    },
-    "ConnectionStrings": {
-      "Default": "Server=cs3.calstatela.edu;Database=cs4540stu30;User ID = userLogin; Password=abc"
-    }
+  "SomeProperty": "SomeValue",
+  "SomeSection": {
+    "Property1": "Value1",
+    "Property2": "Value2"
+  },
+  "ConnectionStrings": {
+    "Default": "Server=cs3.calstatela.edu;Database=userDatabase; User ID = userID; Password=abc"
   }
-
 }
