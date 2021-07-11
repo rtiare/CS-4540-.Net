@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +13,15 @@ namespace VaccineApp
 {
     public class AppDbContext : DbContext
     {
-        private readonly string ConnectionString =
-            "Server=cs3.calstatela.edu;Database=cs4540stu30;User ID = cs4540stu30; Password=qKNZQtCkG5Qf";
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlServer(ConnectionString).UseLazyLoadingProxies();
+
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+            optionsBuilder.UseSqlServer(config.GetConnectionString("Default"))
+                .UseLazyLoadingProxies();
         }
 
         public DbSet<VaccineModel> Vaccines { get; set; } 
