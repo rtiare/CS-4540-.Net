@@ -43,8 +43,8 @@ namespace VaccineApp.View
                 input = Console.ReadLine();
                 int number;
 
-                // if-else to handle a) and access vaccines
-                if (int.TryParse(input, out number))
+                // if-else to handle a) and access vaccines and access if vaccine exist
+                if (int.TryParse(input, out number) && (VaccineController.Exists(number, db)) )
                 {
                     //update doses
                     Console.WriteLine($"\nVaccine Management - {VaccineController.SelectedName(number, db)}");

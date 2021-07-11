@@ -30,5 +30,10 @@ namespace VaccineApp.Controller
             return name;
         }
 
+        //return boolean if table is empty or number doesnt match 
+
+        public static Boolean Exists(int number, AppDbContext db) =>
+             db.Vaccines.Where(e => e.Id == number).Select(e => e).Count() > 0 ? true: false;
+        
     }
 }
