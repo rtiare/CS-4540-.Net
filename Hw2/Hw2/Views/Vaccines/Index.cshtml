@@ -1,0 +1,23 @@
+﻿@model List<Vaccine>
+
+<table class="table">
+    <thead>
+        <tr><th>Vaccine</th></tr>
+        <tr><th>Doses Required</th></tr>
+        <tr><th>Days Between Doses</th></tr>
+        <tr><th>Total Doses Received</th></tr>
+        <tr><th>Total Doses Left</th></tr>
+        <tr><th></th></tr>
+    </thead>
+</table>
+
+@foreach (var vaccine in Model) {
+    <tr>
+        <td>@vaccine.VaccineName</td>
+        <td>@vaccine.DoseRequired</td>
+        <td>@vaccine.DaysBtwDose</td>
+        <td>@vaccine.TotalDose</td>
+        <td>@vaccine.DoseLeft</td>
+        <td>Edit</td>
+    </tr>
+}

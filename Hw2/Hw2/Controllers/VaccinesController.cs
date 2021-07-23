@@ -16,7 +16,7 @@ namespace Hw2.Controllers
         }
 
         public IActionResult Index() {
-            return View();
+            return View(_vaccineService.GetVaccines());
         }
     }
 }
