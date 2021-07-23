@@ -45,6 +45,17 @@ namespace Hw2.Services
             vaccines = new List<Vaccine> {
                 new Vaccine(1, "Pfizer/BioNTech", 2, 21,  10000,   10000)};
         }
+
+        public void AddVaccine(Vaccine vaccine)
+        {
+            vaccines.Add(vaccine);
+        }
+
+        public Vaccine GetVaccine(int id)
+        {
+            return vaccines.FirstOrDefault(e => e.Id == id);
+        }
+
         public List<Vaccine> GetVaccines()
         {
             return vaccines;

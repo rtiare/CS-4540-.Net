@@ -18,5 +18,14 @@ namespace Hw2.Controllers
         {
             return View(_vaccineService.GetVaccines());
         }
+
+        public IActionResult Edit(int id) {
+            return View(_vaccineService.GetVaccine(id));
+        }
+
+        [HttpGet]
+        public IActionResult Add() {
+            return View();
+        }
     }
 }
