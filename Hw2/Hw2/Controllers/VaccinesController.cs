@@ -1,4 +1,5 @@
-﻿using Hw2.Services;
+﻿using Hw2.Models;
+using Hw2.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,32 @@ namespace Hw2.Controllers
             return View(_vaccineService.GetVaccine(id));
         }
 
+        //Display the Add form
         [HttpGet]
-        public IActionResult Add() {
+        public IActionResult AddVaccine() {
             return View();
+        }
+
+        //process adding form
+        [HttpPost]
+        public IActionResult AddVaccine(Vaccine vaccine) {
+            _vaccineService.AddVaccine(vaccine);
+            return RedirectToAction("Index");
+        }
+
+        //Display the Add dose form
+        [HttpGet]
+        public IActionResult AddDose()
+        {
+            return View();
+        }
+
+        //process adding dose form
+        [HttpPost]
+        public IActionResult AddDose(int id)
+        {
+            //_vaccineService.AddVaccine(vaccine);
+            return RedirectToAction("Index");
         }
     }
 }

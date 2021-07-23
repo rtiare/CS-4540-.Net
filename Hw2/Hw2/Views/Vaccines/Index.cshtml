@@ -1,27 +1,29 @@
 ﻿@model List<Vaccine>
-
-<table class="table">
-    <thead>
-        <tr><th>Vaccine</th>
-        <th>Doses Required</th>
-        <th>Days Between Doses</th>
-        <th>Total Doses Received</th>
-        <th>Total Doses Left</th>
-        <th></th></tr>
-    </thead>
-    <tbody>
-        @foreach (var vaccine in Model)
-        {
+    <p><a asp-controller="Vaccines" asp-action="AddVaccine">New Vaccine</a> | <a asp-controller="Vaccines" asp-action="AddVaccine">New Doses</a></p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>@vaccine.VaccineName</td>
-                <td>@vaccine.DoseRequired</td>
-                <td>@vaccine.DaysBtwDose</td>
-                <td>@vaccine.TotalDose</td>
-                <td>@vaccine.DoseLeft</td>
-                <td>Edit</td>
+                <th>Vaccine</th>
+                <th>Doses Required</th>
+                <th>Days Between Doses</th>
+                <th>Total Doses Received</th>
+                <th>Total Doses Left</th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var vaccine in Model)
+            {
+                <tr>
+                    <td>@vaccine.VaccineName</td>
+                    <td>@vaccine.DoseRequired</td>
+                    <td>@vaccine.DaysBtwDose</td>
+                    <td>@vaccine.TotalDose</td>
+                    <td>@vaccine.DoseLeft</td>
+                    <td>Edit</td>
+                </tr>
+            }
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 

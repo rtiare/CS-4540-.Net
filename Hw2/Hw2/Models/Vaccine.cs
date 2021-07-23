@@ -18,6 +18,15 @@ namespace Hw2.Models
 
         public Vaccine() { }
 
+        public Vaccine(string name, int? dose, int? days, int? total, int? left)
+        {
+            VaccineName = name;
+            DoseRequired = dose;
+            DaysBtwDose = days;
+            TotalDose = total;
+            DoseLeft = left;
+        }
+
         public Vaccine(int id ,string name, int? dose, int? days, int? total, int? left ) {
             Id = id;
             VaccineName = name;
