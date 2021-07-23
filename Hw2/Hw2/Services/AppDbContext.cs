@@ -12,6 +12,5 @@ namespace Hw2.Services
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Vaccine> Vaccines { get; set; } 
-        //"ConnectionStrings": {"DefaultConnection": "Server=...;Database=...;User ID=...;Password=...;"},
     }
 }

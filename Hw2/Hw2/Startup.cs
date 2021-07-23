@@ -28,7 +28,7 @@ namespace Hw2
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddSingleton<IVaccineService,  MockVaccineService>();
+            services.AddScoped<IVaccineService, VaccineService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
