@@ -8,6 +8,10 @@ namespace Hw2.Services
 {
     public interface IVaccineService {
         List<Vaccine> GetVaccines();
+
+        Vaccine GetVaccine(int id);
+
+        void AddVaccine(Vaccine vaccine);
     }
 
     public class VaccineService : IVaccineService {
@@ -15,6 +19,17 @@ namespace Hw2.Services
         private readonly AppDbContext _db;
         public VaccineService(AppDbContext db) {
             _db = db;
+        }
+
+        public void AddVaccine(Vaccine vaccine)
+        {
+            _db.Vaccines.Add(vaccine);
+            _db.SaveChanges();
+        }
+
+        public Vaccine GetVaccine(int id)
+        {
+            return _db.Vaccines.Where(e => e.Id == id).SingleOrDefault();
         }
 
         public List<Vaccine> GetVaccines() {
