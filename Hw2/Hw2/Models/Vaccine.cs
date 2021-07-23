@@ -18,23 +18,13 @@ namespace Hw2.Models
 
         public Vaccine() { }
 
-        public Vaccine(string name, int? dose, int? days, int? total, int? left ) {
-            //Id = id;
+        public Vaccine(int id ,string name, int? dose, int? days, int? total, int? left ) {
+            Id = id;
             VaccineName = name;
             DoseRequired = dose;
             DaysBtwDose = days;
             TotalDose = total;
             DoseLeft = left;
-        }
-
-        public override string ToString()
-        {
-            return String.Format("{0,-3}{1,-23}{2,-18}{3,-21}{4,-12}\n",
-                    $"{Id})",
-                    $"{VaccineName}",
-                    $"{DoseRequired}",
-                    $"{DaysBtwDose}",
-                    $"{TotalDose}");
         }
 
     }
