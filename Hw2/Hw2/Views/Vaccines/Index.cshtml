@@ -9,15 +9,19 @@
         <tr><th>Total Doses Left</th></tr>
         <tr><th></th></tr>
     </thead>
+    <tbody>
+        @foreach (var vaccine in Model)
+        {
+            <tr>
+                <td>@vaccine.VaccineName</td>
+                <td>@vaccine.DoseRequired</td>
+                <td>@vaccine.DaysBtwDose</td>
+                <td>@vaccine.TotalDose</td>
+                <td>@vaccine.DoseLeft</td>
+                <td>Edit</td>
+            </tr>
+        }
+
+    </tbody>
 </table>
 
-@foreach (var vaccine in Model) {
-    <tr>
-        <td>@vaccine.VaccineName</td>
-        <td>@vaccine.DoseRequired</td>
-        <td>@vaccine.DaysBtwDose</td>
-        <td>@vaccine.TotalDose</td>
-        <td>@vaccine.DoseLeft</td>
-        <td>Edit</td>
-    </tr>
-}
