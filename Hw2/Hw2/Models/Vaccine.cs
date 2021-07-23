@@ -14,14 +14,17 @@ namespace Hw2.Models
         public int? DaysBtwDose { get; set; }
         public int? TotalDose { get; set; }
 
+        public int? DoseLeft { get; set; }
+
         public Vaccine() { }
 
-        public Vaccine(int id, string name, int? dose, int? days, int? total ) {
-            Id = id;
+        public Vaccine(string name, int? dose, int? days, int? total, int? left ) {
+            //Id = id;
             VaccineName = name;
             DoseRequired = dose;
             DaysBtwDose = days;
             TotalDose = total;
+            DoseLeft = left;
         }
 
         public override string ToString()
