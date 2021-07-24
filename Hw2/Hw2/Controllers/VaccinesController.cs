@@ -25,8 +25,9 @@ namespace Hw2.Controllers
         [HttpGet]
         public IActionResult Edit(int id) {
 
+            //make dropdown list with DoseRequired values (text, value)
             ViewBag.DoseList = _vaccineService.GetVaccines()
-                .Select(e => new SelectListItem(e.DoseRequired.ToString(), e.Id.ToString()))
+                .Select(e => new SelectListItem(e.DoseRequired.ToString(), e.DoseRequired.ToString()))
                 .ToList();
 
             return View(_vaccineService.GetVaccine(id));
@@ -65,6 +66,7 @@ namespace Hw2.Controllers
         [HttpGet]
         public IActionResult AddDose()
         {
+            //make a dropdown list
             ViewBag.NameList = _vaccineService.GetVaccines()
                 .Select(e => new SelectListItem(e.VaccineName, e.Id.ToString()))
                 .ToList();
@@ -75,12 +77,10 @@ namespace Hw2.Controllers
         [HttpPost]
         public IActionResult AddDose(Vaccine vaccine)
         {
+            //look based on id value in viewBag dropdown
             var vaccineFound = _vaccineService.GetVaccine(vaccine.Id);
             vaccineFound.TotalDose += vaccine.TotalDose;
-            //var vaccineFound = _vaccineService.GetVaccines().Where(e => e.Id == id).SingleOrDefault();
-            Console.WriteLine(vaccine.VaccineName + " :this is test");
-
-
+           
             //save changes to database
             _vaccineService.SaveChanges();
             return RedirectToAction("Index");
