@@ -64,9 +64,15 @@ namespace Hw2.Controllers
 
         //process adding dose form
         [HttpPost]
-        public IActionResult AddDose(int id)
+        public IActionResult AddDose(String name, int newDose)
         {
-            //_vaccineService.AddVaccine(vaccine);
+            var vaccineFound = _vaccineService.GetVaccines().Where(e => e.VaccineName == name).SingleOrDefault();
+            
+            //add to total dose
+            vaccineFound.TotalDose = vaccineFound.TotalDose + newDose;
+
+            //save changes to database
+            _vaccineService.SaveChanges();
             return RedirectToAction("Index");
         }
     }
