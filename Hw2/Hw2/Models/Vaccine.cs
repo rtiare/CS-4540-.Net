@@ -10,7 +10,7 @@ namespace Hw2.Models
         //setters and getters
         public int Id { get; set; }
         public string VaccineName { get; set; }
-        public int? DoseRequired { get; set; }
+        public int DoseRequired { get; set; }
         public int? DaysBtwDose { get; set; }
         public int? TotalDose { get; set; }
 
@@ -18,7 +18,7 @@ namespace Hw2.Models
 
         public Vaccine() { }
 
-        public Vaccine(string name, int? dose, int? days, int? total, int? left)
+        public Vaccine(string name, int dose, int? days, int? total, int? left)
         {
             VaccineName = name;
             DoseRequired = dose;
@@ -27,7 +27,7 @@ namespace Hw2.Models
             DoseLeft = left;
         }
 
-        public Vaccine(int id ,string name, int? dose, int? days, int? total, int? left ) {
+        public Vaccine(int id ,string name, int dose, int? days, int? total, int? left ) {
             Id = id;
             VaccineName = name;
             DoseRequired = dose;

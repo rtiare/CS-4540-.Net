@@ -12,6 +12,7 @@ namespace Hw2.Services
         Vaccine GetVaccine(int id);
 
         void AddVaccine(Vaccine vaccine);
+        void SaveChanges();
     }
 
     public class VaccineService : IVaccineService {
@@ -35,7 +36,11 @@ namespace Hw2.Services
         public List<Vaccine> GetVaccines() {
             return _db.Vaccines.ToList();
         }
-    
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
+        }
     }
     public class MockVaccineService : IVaccineService
     {
@@ -59,6 +64,11 @@ namespace Hw2.Services
         public List<Vaccine> GetVaccines()
         {
             return vaccines;
+        }
+
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 

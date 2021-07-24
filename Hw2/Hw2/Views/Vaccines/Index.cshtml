@@ -1,5 +1,5 @@
 ﻿@model List<Vaccine>
-    <p><a asp-controller="Vaccines" asp-action="AddVaccine">New Vaccine</a> | <a asp-controller="Vaccines" asp-action="AddVaccine">New Doses</a></p>
+    <p><a asp-controller="Vaccines" asp-action="AddVaccine">New Vaccine</a> | <a asp-controller="Vaccines" asp-action="AddDose">New Doses</a></p>
     <table class="table">
         <thead>
             <tr>
@@ -20,7 +20,7 @@
                     <td>@vaccine.DaysBtwDose</td>
                     <td>@vaccine.TotalDose</td>
                     <td>@vaccine.DoseLeft</td>
-                    <td>Edit</td>
+                    <td><a asp-controller="Vaccines" asp-action="Edit">Edit</a></td>
                 </tr>
             }
 

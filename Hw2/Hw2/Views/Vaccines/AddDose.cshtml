@@ -1,0 +1,21 @@
+﻿@model List<Vaccine>
+
+<form method="post">
+    <div class="form-group row">
+        <label for="inputDoseReq" class="col-sm-2 col-form-label">Vaccine</label>
+        <div class="col-sm-10">
+            <select id="inputVaccine" class="form-control">
+                @foreach (var vaccine in Model) { 
+                    <option>@vaccine.VaccineName</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">New Doses Received</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputNewDose">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

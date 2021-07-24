@@ -20,8 +20,26 @@ namespace Hw2.Controllers
             return View(_vaccineService.GetVaccines());
         }
 
+        //Display the Add form
+        [HttpGet]
         public IActionResult Edit(int id) {
             return View(_vaccineService.GetVaccine(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, Vaccine change) {
+            //search by id
+            var vaccineFound = _vaccineService.GetVaccine(id);
+            //update
+            vaccineFound.VaccineName = change.VaccineName;
+            vaccineFound.DoseRequired = change.DoseRequired;
+            vaccineFound.DaysBtwDose = change.DaysBtwDose;
+            vaccineFound.TotalDose = change.TotalDose;
+            vaccineFound.DoseLeft = change.DoseLeft;
+            //save in backend
+            _vaccineService.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         //Display the Add form
@@ -41,7 +59,7 @@ namespace Hw2.Controllers
         [HttpGet]
         public IActionResult AddDose()
         {
-            return View();
+            return View(_vaccineService.GetVaccines());
         }
 
         //process adding dose form
