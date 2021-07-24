@@ -1,6 +1,7 @@
 ﻿using Hw2.Models;
 using Hw2.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,11 @@ namespace Hw2.Controllers
         //Display the Add form
         [HttpGet]
         public IActionResult Edit(int id) {
+
+            ViewBag.DoseList = _vaccineService.GetVaccines()
+                .Select(e => new SelectListItem(e.DoseRequired.ToString(), e.Id.ToString()))
+                .ToList();
+
             return View(_vaccineService.GetVaccine(id));
         }
 
@@ -59,6 +65,9 @@ namespace Hw2.Controllers
         [HttpGet]
         public IActionResult AddDose()
         {
+            ViewBag.NameList = _vaccineService.GetVaccines()
+                .Select(e => new SelectListItem(e.VaccineName, e.Id.ToString()))
+                .ToList();
             return View(_vaccineService.GetVaccines());
         }
 
@@ -69,7 +78,7 @@ namespace Hw2.Controllers
             var vaccineFound = _vaccineService.GetVaccines().Where(e => e.VaccineName == name).SingleOrDefault();
             
             //add to total dose
-            vaccineFound.TotalDose = vaccineFound.TotalDose + newDose;
+            vaccineFound.TotalDose += newDose;
 
             //save changes to database
             _vaccineService.SaveChanges();

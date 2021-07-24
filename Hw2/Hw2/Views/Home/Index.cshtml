@@ -6,10 +6,18 @@
     <div class="text-center">
         <h1 class="display-4">Welcome</h1>
     </div>
-    <div class="buttons">
-        <button type="button" class="btn btn-link btn-lg"><a asp-controller="Vaccines" asp-action="Index"></a>Vaccine Management</button>
-        <button type="button" class="btn btn-link btn-lg">Patient Management</button>
-        <a asp-controller="Vaccines" asp-action="Index">Prrrr</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4 text-center">
+                <p><a asp-controller="Vaccines" asp-action="Index" class="btn btn-primary">Vaccine Management</a></p>
+
+            </div>
+            <div class="col-4 text-center">
+                <p><a asp-controller="Vaccines" class="btn btn-primary">Patient Management</a></p>
+
+            </div>
+
+        </div>
     </div>
 </div>
 

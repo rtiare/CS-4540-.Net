@@ -20,7 +20,7 @@
                     <td>@vaccine.DaysBtwDose</td>
                     <td>@vaccine.TotalDose</td>
                     <td>@vaccine.DoseLeft</td>
-                    <td><a asp-controller="Vaccines" asp-action="Edit">Edit</a></td>
+                    <td><a asp-controller="Vaccines" asp-action="Edit" asp-route-id="@vaccine.Id">Edit</a></td>
                 </tr>
             }
 
