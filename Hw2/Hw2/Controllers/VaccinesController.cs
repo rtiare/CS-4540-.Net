@@ -80,6 +80,8 @@ namespace Hw2.Controllers
             //look based on id value in viewBag dropdown
             var vaccineFound = _vaccineService.GetVaccine(vaccine.Id);
             vaccineFound.TotalDose += vaccine.TotalDose;
+            //total dose = left dose
+            vaccineFound.DoseLeft = vaccineFound.TotalDose;
            
             //save changes to database
             _vaccineService.SaveChanges();
