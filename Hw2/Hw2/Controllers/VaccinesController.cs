@@ -68,17 +68,18 @@ namespace Hw2.Controllers
             ViewBag.NameList = _vaccineService.GetVaccines()
                 .Select(e => new SelectListItem(e.VaccineName, e.Id.ToString()))
                 .ToList();
-            return View(_vaccineService.GetVaccines());
+            return View();
         }
 
         //process adding dose form
         [HttpPost]
-        public IActionResult AddDose(String name, int newDose)
+        public IActionResult AddDose(Vaccine vaccine)
         {
-            var vaccineFound = _vaccineService.GetVaccines().Where(e => e.VaccineName == name).SingleOrDefault();
-            
-            //add to total dose
-            vaccineFound.TotalDose += newDose;
+            var vaccineFound = _vaccineService.GetVaccine(vaccine.Id);
+            vaccineFound.TotalDose += vaccine.TotalDose;
+            //var vaccineFound = _vaccineService.GetVaccines().Where(e => e.Id == id).SingleOrDefault();
+            Console.WriteLine(vaccine.VaccineName + " :this is test");
+
 
             //save changes to database
             _vaccineService.SaveChanges();
