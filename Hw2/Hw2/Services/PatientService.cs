@@ -49,7 +49,10 @@ namespace Hw2.Services
     {
         private List<Patient> patients;
 
-        public MockPatientService() {}
+        public MockPatientService() {
+            patients = new List<Patient> {
+                new Patient("John Doe", "Pfizer/BioNTech", new DateTime(2015, 2, 18),  new DateTime(2015, 3, 11))};
+        }
         public void AddPatient(Patient patient)
         {
             patients.Add(patient); 
