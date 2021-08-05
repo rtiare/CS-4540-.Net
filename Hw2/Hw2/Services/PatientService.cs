@@ -52,7 +52,7 @@ namespace Hw2.Services
         public MockPatientService() {}
         public void AddPatient(Patient patient)
         {
-            patients.Add(patient); ;
+            patients.Add(patient); 
         }
 
         public Patient GetPatient(int id)
