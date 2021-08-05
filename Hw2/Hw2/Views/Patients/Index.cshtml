@@ -1,10 +1,10 @@
-﻿@model List<Patient>
+﻿
+@model List<Patient>
 
 <div class="container">
     <div class="row justify-content-start">
         <div class="col-2 text-center">
             <p><a asp-controller="Patients" asp-action="AddPatient" class="btn btn-primary">New Vaccine</a></p>
-
         </div>
     </div>
 </div>
@@ -24,9 +24,9 @@
         @foreach (var patient in Model)
         {
             <tr>
-                <td>@patient.Id</td>
+                <td>@patient.Pid</td>
                 <td>@patient.Name</td>
-                <td>@patient.Vaccine</td>
+                <td>@patient.VaccineSelected</td>
                 <td>@patient.FirstDose</td>
                 <td>@patient.SecondDose</td>
             </tr>
@@ -34,5 +34,3 @@
 
     </tbody>
 </table>
-
-

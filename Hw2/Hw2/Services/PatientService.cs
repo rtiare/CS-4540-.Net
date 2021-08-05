@@ -31,7 +31,7 @@ namespace Hw2.Services
 
         public Patient GetPatient(int id)
         {
-            return _db.Patients.Where(e => e.Id == id).SingleOrDefault();
+            return _db.Patients.Where(e => e.Pid == id).SingleOrDefault();
         }
 
         public List<Patient> GetPatients()
@@ -51,7 +51,7 @@ namespace Hw2.Services
 
         public MockPatientService() {
             patients = new List<Patient> {
-                new Patient("John Doe", "Pfizer/BioNTech", new DateTime(2015, 2, 18),  new DateTime(2015, 3, 11))};
+                new Patient("John Doe", 1, new DateTime(2015, 2, 18),  new DateTime(2015, 3, 11))};
         }
         public void AddPatient(Patient patient)
         {
@@ -60,7 +60,7 @@ namespace Hw2.Services
 
         public Patient GetPatient(int id)
         {
-            return patients.FirstOrDefault(e => e.Id == id);
+            return patients.FirstOrDefault(e => e.Pid == id);
         }
 
         public List<Patient> GetPatients()
