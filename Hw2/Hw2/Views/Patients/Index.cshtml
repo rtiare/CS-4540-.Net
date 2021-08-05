@@ -1,0 +1,38 @@
+﻿@model List<Patient>
+
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="col-2 text-center">
+            <p><a asp-controller="Patients" asp-action="AddPatient" class="btn btn-primary">New Vaccine</a></p>
+
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Vaccine</th>
+            <th>1st Dose</th>
+            <th>2nd Dose</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.Id</td>
+                <td>@patient.Name</td>
+                <td>@patient.Vaccine</td>
+                <td>@patient.FirstDose</td>
+                <td>@patient.SecondDose</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
