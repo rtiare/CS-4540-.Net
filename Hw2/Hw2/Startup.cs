@@ -28,6 +28,7 @@ namespace Hw2
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 
+            //registerd services to runtime scope
             services.AddScoped<IVaccineService, VaccineService>();
             services.AddScoped<IPatientService, PatientService>();
         }
