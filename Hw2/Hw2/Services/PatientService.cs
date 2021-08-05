@@ -44,4 +44,30 @@ namespace Hw2.Services
             _db.SaveChanges();
         }
     }
+
+    public class MockPatientService : IPatientService
+    {
+        private List<Patient> patients;
+
+        public MockPatientService() {}
+        public void AddPatient(Patient patient)
+        {
+            patients.Add(patient); ;
+        }
+
+        public Patient GetPatient(int id)
+        {
+            return patients.FirstOrDefault(e => e.Id == id);
+        }
+
+        public List<Patient> GetPatients()
+        {
+            return patients;
+        }
+
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

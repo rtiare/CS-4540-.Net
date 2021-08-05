@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hw2.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace Hw2.Controllers
 {
     public class PatientController : Controller
     {
+        public readonly IPatientService _patientService;
         public IActionResult Index()
         {
             return View();
