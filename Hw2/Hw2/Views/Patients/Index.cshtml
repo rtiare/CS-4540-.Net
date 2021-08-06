@@ -26,12 +26,12 @@
             <tr>
                 <td>@patient.Id</td>
                 <td>@patient.Name</td>
-                <td>@patient.VaccineSelected</td>
+                <td>@patient.Vaccineid</td>
                 <td>@patient.FirstDose</td>
                 <td>
                     @if (patient.SecondDose == "Received")
                     {
-                        <p><a asp-controller="Patients" asp-action="AddPatient" class="btn btn-primary">Received</a></p>
+                        <p><a asp-controller="Patients" asp-action="AddSecondDose" class="btn btn-primary">Received</a></p>
 
                     }
                     else

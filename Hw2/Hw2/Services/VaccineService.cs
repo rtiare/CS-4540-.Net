@@ -11,6 +11,8 @@ namespace Hw2.Services
 
         Vaccine GetVaccine(int id);
 
+        Vaccine SearchByName(string name);
+
         void AddVaccine(Vaccine vaccine);
         void SaveChanges();
     }
@@ -41,6 +43,11 @@ namespace Hw2.Services
         {
             _db.SaveChanges();
         }
+
+        public Vaccine SearchByName(string name)
+        {
+            return _db.Vaccines.Where(e => e.VaccineName == name).SingleOrDefault();
+        }
     }
     public class MockVaccineService : IVaccineService
     {
@@ -69,6 +76,11 @@ namespace Hw2.Services
         public void SaveChanges()
         {
             throw new NotImplementedException();
+        }
+
+        public Vaccine SearchByName(string name)
+        {
+            return vaccines.FirstOrDefault(e => e.VaccineName == name); ;
         }
     }
 

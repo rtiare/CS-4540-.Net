@@ -32,7 +32,7 @@ namespace Hw2.Controllers
             //make dropdown list with DoseRequired values (text, value) for totalDose > 0
             ViewBag.VaccineList = _vaccineService.GetVaccines()
                 .Where(e => e.TotalDose > 0)
-                .Select(e => new SelectListItem(e.VaccineName, e.Id.ToString()))
+                .Select(e => new SelectListItem(e.VaccineName, e.VaccineName))
                 .ToList();
             return View();
         }
@@ -42,8 +42,9 @@ namespace Hw2.Controllers
         public IActionResult AddPatient(Patient patient)
         {
 
-            //get the vaccine with patient vaccine id
-            Vaccine selected = _vaccineService.GetVaccine(patient.Vaccineid);
+            //get the vaccine with patient vaccine name
+            Vaccine selected = _vaccineService.SearchByName(patient.Vaccineid);
+
             //decrease it and save changes
             int stock = selected.TotalDose - 1;
             selected.TotalDose = stock;
@@ -52,10 +53,6 @@ namespace Hw2.Controllers
             //Set the date of the first dose for the patient to the current date.
             DateTime currentTIme = DateTime.Now.Date;
             patient.FirstDose = currentTIme;
-
-            //update the vaccine selected name
-            string name = selected.VaccineName;
-            patient.VaccineSelected = name;
 
             if (selected.DoseRequired == 1)
             {
@@ -74,6 +71,17 @@ namespace Hw2.Controllers
             //save the changes to database
             _patientService.AddPatient(patient);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult AddSecondDose(int id) {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddSecondDose()
+        {
+            return View();
         }
 
     }
