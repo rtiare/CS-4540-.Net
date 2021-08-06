@@ -51,7 +51,7 @@ namespace Hw2.Services
 
         public MockPatientService() {
             patients = new List<Patient> {
-                new Patient("John Doe", 1, new DateTime(2015, 2, 18),  new DateTime(2015, 3, 11))};
+                new Patient("John Doe", 1, new DateTime(2015, 2, 18), "3/11/2015")};
         }
         public void AddPatient(Patient patient)
         {

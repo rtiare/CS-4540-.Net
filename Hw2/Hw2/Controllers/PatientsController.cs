@@ -53,6 +53,10 @@ namespace Hw2.Controllers
             DateTime currentTIme = DateTime.Now.Date;
             patient.FirstDose = currentTIme;
 
+            if (selected.DoseRequired == 1) {
+                patient.SecondDose = "-";
+            }
+
             //save the changes to database
             _patientService.AddPatient(patient);
             return RedirectToAction("Index");

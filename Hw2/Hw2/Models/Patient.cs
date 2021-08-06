@@ -19,13 +19,13 @@ namespace Hw2.Models
         public DateTime FirstDose { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime SecondDose { get; set; }
+        public String SecondDose { get; set; }
 
         public Patient() { }
 
 
         //create another class with id
-        public Patient(string name, int vaccine, DateTime firstDose, DateTime secondDose)
+        public Patient(string name, int vaccine, DateTime firstDose, String secondDose)
         {
             Name = name;
             Vaccineid = vaccine;
