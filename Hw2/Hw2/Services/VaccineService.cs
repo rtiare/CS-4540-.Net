@@ -46,7 +46,7 @@ namespace Hw2.Services
 
         public Vaccine SearchByName(string name)
         {
-            return _db.Vaccines.Where(e => e.VaccineName == name).SingleOrDefault();
+            return _db.Vaccines.Where(e => e.VaccineName == name).Single();
         }
     }
     public class MockVaccineService : IVaccineService
@@ -80,7 +80,7 @@ namespace Hw2.Services
 
         public Vaccine SearchByName(string name)
         {
-            return vaccines.FirstOrDefault(e => e.VaccineName == name); ;
+            return vaccines.Single(e => e.VaccineName == name); ;
         }
     }
 

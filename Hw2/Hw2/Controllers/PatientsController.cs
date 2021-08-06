@@ -46,7 +46,7 @@ namespace Hw2.Controllers
             Vaccine selected = _vaccineService.SearchByName(patient.Vaccineid);
 
             //decrease it and save changes
-            int stock = selected.TotalDose - 1;
+            int stock = selected.DoseLeft - 1;
             selected.DoseLeft= stock;
             _vaccineService.SaveChanges();
 
