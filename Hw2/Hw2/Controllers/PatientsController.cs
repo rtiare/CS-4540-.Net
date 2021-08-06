@@ -51,8 +51,8 @@ namespace Hw2.Controllers
             _vaccineService.SaveChanges();
 
             //Set the date of the first dose for the patient to the current date.
-            DateTime currentTIme = DateTime.Now.Date;
-            patient.FirstDose = currentTIme;
+            DateTime currentTIme = DateTime.Now;
+            patient.FirstDose = currentTIme.ToString("MM/dd/yyyy");
 
             if (selected.DoseRequired == 1)
             {
