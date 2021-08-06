@@ -31,7 +31,7 @@ namespace Hw2.Services
 
         public Patient GetPatient(int id)
         {
-            return _db.Patients.Where(e => e.Pid == id).SingleOrDefault();
+            return _db.Patients.Where(e => e.Id == id).SingleOrDefault();
         }
 
         public List<Patient> GetPatients()
@@ -60,7 +60,7 @@ namespace Hw2.Services
 
         public Patient GetPatient(int id)
         {
-            return patients.FirstOrDefault(e => e.Pid == id);
+            return patients.FirstOrDefault(e => e.Id == id);
         }
 
         public List<Patient> GetPatients()

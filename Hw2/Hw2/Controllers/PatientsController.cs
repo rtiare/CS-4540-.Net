@@ -40,6 +40,20 @@ namespace Hw2.Controllers
         [HttpPost]
         public IActionResult AddPatient(Patient patient)
         {
+            //Decrement the stock of the selected vaccine by 1.
+
+            //get the vaccine with patient vaccine id
+            Vaccine selected = _vaccineService.GetVaccine(patient.Vaccineid);
+            //decrease it and save changes
+            int stock = selected.TotalDose - 1;
+            selected.TotalDose = stock;
+            _vaccineService.SaveChanges();
+
+            //Set the date of the first dose for the patient to the current date.
+            DateTime currentTIme = DateTime.Now.Date;
+            patient.FirstDose = currentTIme;
+
+            //save the changes to database
             _patientService.AddPatient(patient);
             return RedirectToAction("Index");
         }

@@ -9,10 +9,10 @@ namespace Hw2.Models
     public class Patient
     {
         //setters and getters
-        public int Pid { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
-        public int VaccineId { get; set; }
+        public int Vaccineid { get; set; }
         public Vaccine VaccineSelected { get; set; }
 
         [DataType(DataType.Date)]
@@ -23,10 +23,12 @@ namespace Hw2.Models
 
         public Patient() { }
 
+
+        //create another class with id
         public Patient(string name, int vaccine, DateTime firstDose, DateTime secondDose)
         {
             Name = name;
-            VaccineId = vaccine;
+            Vaccineid = vaccine;
             FirstDose = firstDose;
             SecondDose = secondDose;
 
