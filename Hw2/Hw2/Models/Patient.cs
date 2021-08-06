@@ -13,7 +13,7 @@ namespace Hw2.Models
         public string Name { get; set; }
 
         public int Vaccineid { get; set; }
-        public Vaccine VaccineSelected { get; set; }
+        public string VaccineSelected { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime FirstDose { get; set; }

@@ -29,8 +29,9 @@ namespace Hw2.Controllers
         [HttpGet]
         public IActionResult AddPatient()
         {
-            //make dropdown list with DoseRequired values (text, value)
+            //make dropdown list with DoseRequired values (text, value) for totalDose > 0
             ViewBag.VaccineList = _vaccineService.GetVaccines()
+                .Where(e => e.TotalDose > 0)
                 .Select(e => new SelectListItem(e.VaccineName, e.Id.ToString()))
                 .ToList();
             return View();
@@ -40,7 +41,6 @@ namespace Hw2.Controllers
         [HttpPost]
         public IActionResult AddPatient(Patient patient)
         {
-            //Decrement the stock of the selected vaccine by 1.
 
             //get the vaccine with patient vaccine id
             Vaccine selected = _vaccineService.GetVaccine(patient.Vaccineid);
@@ -53,8 +53,22 @@ namespace Hw2.Controllers
             DateTime currentTIme = DateTime.Now.Date;
             patient.FirstDose = currentTIme;
 
-            if (selected.DoseRequired == 1) {
+            //update the vaccine selected name
+            string name = selected.VaccineName;
+            patient.VaccineSelected = name;
+
+            if (selected.DoseRequired == 1)
+            {
                 patient.SecondDose = "-";
+            }
+            else {
+                if (selected.TotalDose == 0)
+                {
+                    patient.SecondDose = "Out of Stock";
+                }
+                else {
+                    patient.SecondDose = "Received";
+                }
             }
 
             //save the changes to database

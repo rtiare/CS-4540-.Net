@@ -28,7 +28,18 @@
                 <td>@patient.Name</td>
                 <td>@patient.VaccineSelected</td>
                 <td>@patient.FirstDose</td>
-                <td>@patient.SecondDose</td>
+                <td>
+                    @if (patient.SecondDose == "Received")
+                    {
+                        <p><a asp-controller="Patients" asp-action="AddPatient" class="btn btn-primary">Received</a></p>
+
+                    }
+                    else
+                    {
+                        @patient.SecondDose
+                    }
+
+                </td>
             </tr>
         }
 
