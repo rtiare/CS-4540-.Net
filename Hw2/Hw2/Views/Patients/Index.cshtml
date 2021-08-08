@@ -31,7 +31,8 @@
                 <td>
                     @if (patient.SecondDose == "Received")
                     {
-                        <p><a asp-controller="Patients" asp-action="AddSecondDose" class="btn btn-primary">Received</a></p>
+                        <button name="button" value="@patient.Id" asp-action="AddSecondDose" type="submit" class="btn btn-primary">Received</button>
+                        //<p><a asp-controller="Patients" asp-action="AddSecondDose" class="btn btn-primary">Received</a></p>
 
                     }
                     else

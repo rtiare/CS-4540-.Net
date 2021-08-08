@@ -73,15 +73,30 @@ namespace Hw2.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public IActionResult AddSecondDose() {
-            return View();
-        }
+        //[HttpGet]
+       // public IActionResult AddSecondDose(int id) {
+            
+         //   return View(_patientService.GetPatient(id));
+       // }
 
         [HttpPost]
-        public IActionResult AddSecondDose(int id)
+        public IActionResult AddSecondDose(int button)
         {
-            return View();
+            Patient patient = _patientService.GetPatient((button));
+            //Set the date of the second dose for the patient to the current date.
+            string curent = DateTime.Now.ToString("MM/dd/yyyy");
+            patient.SecondDose = curent;
+
+            //derement stock by 1
+            Vaccine vaccine = _vaccineService.SearchByName(patient.Name);
+            int stock = vaccine.DoseLeft - 1;
+            vaccine.DoseLeft = stock;
+
+            //save the changes to database
+            _patientService.SaveChanges();
+            _vaccineService.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
     }
